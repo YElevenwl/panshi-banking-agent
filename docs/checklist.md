@@ -129,7 +129,7 @@
 - [x] 实际演示视频：`deliverables/PANSHI-demo.mp4`（4:02，1080p，中文 TTS，新版视觉）
 - [x] 真实模型对照：`eval/report-real.md`（GPT-OSS-20B 公共端点，严格模式）
 - [ ] Docker 构建/运行验证（本机无 Docker）
-- [ ] GitHub 仓库地址（本机无 git）
+- [x] GitHub 仓库地址：`https://github.com/YElevenwl/panshi-banking-agent`（main 已推送）
 - [ ] 真实 FaceID/WebAuthn（TOTP 模拟）
 - [ ] gVisor/Firecracker 通用代码沙箱（使用受限表达式沙箱）
 - [ ] 生产分布式数据库/消息队列/WORM/HSM
