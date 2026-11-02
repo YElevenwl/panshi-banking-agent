@@ -1,0 +1,14 @@
+node_modules/
+tools/node_modules/
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/audit/*.jsonl
+data/audit/*.anchor
+deliverables/audio/
+deliverables/video-frames/
+deliverables/video-work/
+deliverables/tmp-audit/
+deliverables/ppt-check/
+.env
+*.log

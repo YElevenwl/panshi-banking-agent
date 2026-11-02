@@ -1,0 +1,170 @@
+{
+  "trace_id": "tr_ff55c684418843beb545",
+  "run_id": "run_353b52b5df914e83",
+  "scenario": "transfer",
+  "total_events": 33,
+  "picked": [
+    {
+      "seq": 7,
+      "event_type": "tool.executed",
+      "node_id": "N2",
+      "ts": "2026-10-31T01:00:04.073Z",
+      "payload": {
+        "compensation_tool": null,
+        "idempotency_key": null,
+        "params": {
+          "query": "张伟"
+        },
+        "params_hash": "f732095477c74281f70fd1814f3042b4859d3ca48a92fa681028b5cac8e372fc",
+        "permit_id": null,
+        "result_digest": "481d0d6ed10a489a817740e431537cda7d36a7626da77914234475949f7e3664",
+        "tool": "payee.search"
+      },
+      "prev_hash": "a5621aba0edc7f76b4c58811e244c4b02353de17e6c35d36b4f05a6c3e7fab45",
+      "hash": "f44440b510ba45f05874243d53036cbf51ba9d70e97d244abdb3dee73886b3ed"
+    },
+    {
+      "seq": 12,
+      "event_type": "policy.evaluated",
+      "node_id": "N4",
+      "ts": "2026-10-31T01:00:04.092Z",
+      "payload": {
+        "constraints": {
+          "max_amount_cents": 80000
+        },
+        "decision": "CONFIRM",
+        "fact_id": "fact_45e4624746b54f1c",
+        "facts": {
+          "account_id": "acc_1001",
+          "amount_cents": 80000,
+          "breaker_state": "CLOSED",
+          "daily_limit_cents": 5000000,
+          "is_new_payee": false,
+          "mandate_id": null,
+          "payee_id": "payee_88",
+          "projected_daily_cents": 80000,
+          "taint": false,
+          "transfer_count_today": 0,
+          "used_today_cents": 0,
+          "user_id": "user_1001",
+          "velocity_count": 1
+        },
+        "payee_id": "payee_88",
+        "policy_version": "policy-2026.10.31",
+        "reason_codes": [
+          "TIER_YELLOW_SMALL_TRANSFER"
+        ],
+        "required_auth": "user_confirm",
+        "tier": "YELLOW"
+      },
+      "prev_hash": "9b6c5b15104dc4d177a3996120efbfa4d49a83a454da71408a5b32ccff64bd2f",
+      "hash": "2e40c423f89ec2cd07b682afa2e7954fee19bbeb092bdd1730d94bb6e6d37b23"
+    },
+    {
+      "seq": 15,
+      "event_type": "approval.requested",
+      "node_id": "N5",
+      "ts": "2026-10-31T01:00:04.101Z",
+      "payload": {
+        "amount_cents": 80000,
+        "approval_id": "appr_bc74d591fe25477d",
+        "expires_at": "2026-10-31T01:05:04.100Z",
+        "required_auth": "user_confirm",
+        "summary": "向 张伟 转账 800.00 元，备注「房租」",
+        "tool": "ledger.hold"
+      },
+      "prev_hash": "66a1e3ebc3895942fb446efbd2ace11a7aae56eff472a6c69e77b64f3cd9b0e0",
+      "hash": "5a71d67a261136dabc7dec11cd6a5edb15c77db392b27ec5661365e8f10297c1"
+    },
+    {
+      "seq": 19,
+      "event_type": "approval.granted",
+      "node_id": null,
+      "ts": "2026-10-31T01:00:05.403Z",
+      "payload": {
+        "approval_id": "appr_bc74d591fe25477d",
+        "approver_id": "user_1001",
+        "auth_method": "user_confirm",
+        "challenge": null
+      },
+      "prev_hash": "24e8b4f2f28412ec1d1623b29b05daf916c23de72d13621a58cba61f4f548322",
+      "hash": "37a2772edb894f4d231e42f1e62fde17e386bb331e87ad7467a387039c2b7e6c"
+    },
+    {
+      "seq": 22,
+      "event_type": "tool.executed",
+      "node_id": "N6",
+      "ts": "2026-10-31T01:00:05.417Z",
+      "payload": {
+        "compensation_tool": "ledger.release_hold",
+        "idempotency_key": "run_353b52b5df914e83:N6:hold",
+        "params": {
+          "account_id": "acc_1001",
+          "amount_cents": 80000,
+          "expires_at": "2026-10-31T01:15:04.099Z"
+        },
+        "params_hash": "18d1a6e00b6247af5cef71bc2c6884f59241ce9e8cd436268a829d599ddebff4",
+        "permit_id": "permit_75beed18eb0b44f5",
+        "result_digest": "d8dad7d63845a9fd801643a4ae1057669a452070d002bea1f5c08e609d71b8f8",
+        "tool": "ledger.hold"
+      },
+      "prev_hash": "8f79db1ccc41824bc382027b46ad506e72e662fa041a0524cd568a6fd7fcb77f",
+      "hash": "ea85edebf49b7bdf938de36dc2facf73bd07e9df40fd3f660a5675a9cba34192"
+    },
+    {
+      "seq": 25,
+      "event_type": "tool.executed",
+      "node_id": "N7",
+      "ts": "2026-10-31T01:00:05.427Z",
+      "payload": {
+        "compensation_tool": "transfer.reverse",
+        "idempotency_key": "run_353b52b5df914e83:N7:commit",
+        "params": {
+          "account_id": "acc_1001",
+          "amount_cents": 80000,
+          "hold_id": "hold_30e6e86e45ad4827",
+          "memo": "房租",
+          "payee_id": "payee_88"
+        },
+        "params_hash": "3ed7de8859785b0a31a946180149cc7c29ad4c98c413f8abdcd526c59320a234",
+        "permit_id": "permit_975e28ddd4b74ef1",
+        "result_digest": "b7464f954d02754a58a3eb86936b60c0688b0b1a73ecd5658b713fd13b5b3822",
+        "tool": "transfer.commit"
+      },
+      "prev_hash": "1d511a21f760b170ff65ff85142063cc48b7b19c57015be53c929eb7bda646fd",
+      "hash": "481fabee736229d31a3273d8405e8911f05cc5183025d12f8dfa2158ad57b4d9"
+    },
+    {
+      "seq": 28,
+      "event_type": "tool.executed",
+      "node_id": "N8",
+      "ts": "2026-10-31T01:00:05.435Z",
+      "payload": {
+        "compensation_tool": null,
+        "idempotency_key": null,
+        "params": {
+          "account_id": "acc_1001"
+        },
+        "params_hash": "a008d434c5db7698e5b5b812d23c1ca8fa807d5d09bfc30921d8af993c021d08",
+        "permit_id": null,
+        "result_digest": "14426d7f9f8a864bc4d034dc188dd42d81d08a32391181a678e646d552f21370",
+        "tool": "account.balance"
+      },
+      "prev_hash": "70ae4967b3f4fd1d2bc5fd3be776165fe958bc166b8a8af39e25881a796e11fe",
+      "hash": "e48909f9c44d70a5dba0319476fff25bad5147ab62725ea50aae41f8d14222ce"
+    },
+    {
+      "seq": 31,
+      "event_type": "audit.sealed",
+      "node_id": "N9",
+      "ts": "2026-10-31T01:00:05.444Z",
+      "payload": {
+        "anchors": 0,
+        "count": 30,
+        "head": "d227e0d558129e95ee959140a0b5487f7590f566d2124dc5d64a4f9ee648b329"
+      },
+      "prev_hash": "d227e0d558129e95ee959140a0b5487f7590f566d2124dc5d64a4f9ee648b329",
+      "hash": "3d11d9316b45c5ed82a426d041712935bb3294b318e5106ef636ed2e413e1f01"
+    }
+  ]
+}
